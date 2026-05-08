@@ -1,0 +1,287 @@
+/* ============================================================
+   314xl — Stylesheet
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1714;
+  --paper: #f2ede6;
+  --muted: #8a8178;
+  --accent: #c84b2f;
+  --border: #c8c0b4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Courier Prime', monospace;
+  font-size: 15px;
+  line-height: 1.75;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grain-Textur */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(26,23,20,0.08) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── LAYOUT ── */
+
+.page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HERO — Mobile: zentriert ── */
+
+.hero {
+  padding: 64px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-mark {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(72px, 22vw, 128px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.09;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-mark em { font-style: italic; }
+
+.hero-text h1 {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(34px, 8vw, 50px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.h1-warm {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-text p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 38ch;
+}
+
+/* ── TRENNLINIE ── */
+
+.rule { border: none; border-top: 1px solid var(--border); }
+
+/* ── SEKTIONEN ── */
+
+.section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── LEISTUNGEN — Mobile: einspaltig, zentriert ── */
+
+.disc-list { list-style: none; }
+
+.disc-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.disc-list li:last-child { border-bottom: none; }
+
+.disc-num {
+  font-size: 10px;
+  color: var(--muted);
+  font-style: italic;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.disc-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 22px;
+  font-weight: 400;
+  display: block;
+}
+
+.disc-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+  display: block;
+}
+
+/* ── ÜBER MICH ── */
+
+.about-text {
+  font-family: 'IM Fell English', serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about-text em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.about-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.meta-item {
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+}
+
+.meta-key {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.meta-val {
+  font-family: 'IM Fell English', serif;
+  font-size: 16px;
+}
+
+/* ── KONTAKT ── */
+
+.contact-line {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(22px, 5vw, 28px);
+  line-height: 1.2;
+}
+
+.contact-link {
+  display: inline-block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  margin-top: 20px;
+  transition: color 0.2s, border-color 0.2s;
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── FOOTER ── */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 0 28px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* ── ANIMATIONEN ── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero    { animation: fadeUp 0.7s ease both; }
+.section { animation: fadeUp 0.7s ease 0.1s both; }
+
+/* ── TABLET & DESKTOP — ab 600px ── */
+
+@media (min-width: 600px) {
+  .page { padding: 0 40px; }
+
+  .hero {
+    padding: 100px 0 70px;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+    text-align: left;
+  }
+
+  .section { padding: 60px 0; flex-direction: row; gap: 40px; }
+  .section-label { flex: 0 0 160px; padding-top: 4px; }
+  .section-content { flex: 1; }
+
+  /* Disc list: zurück auf zweispaltig */
+  .disc-list li {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: baseline;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .disc-num { display: inline; margin-bottom: 0; }
+  .disc-name { display: inline; }
+  .disc-sub { grid-column: 2; margin-top: -4px; }
+
+  .contact-link { word-break: normal; }
+}
+
+@media (min-width: 900px) {
+  .page { padding: 0 48px; }
+  .hero { padding: 110px 0 80px; gap: 60px; }
+  .section-label { flex: 0 0 180px; }
+}
