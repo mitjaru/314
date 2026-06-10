@@ -25,6 +25,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Grain-Textur */
 body::before {
   content: '';
   position: fixed;
@@ -34,6 +35,7 @@ body::before {
   z-index: 0;
 }
 
+/* Vignette */
 body::after {
   content: '';
   position: fixed;
@@ -264,8 +266,9 @@ footer {
   .section:nth-of-type(2) .section-label { margin-top: 4px; }
   .section:nth-of-type(3) .section-label { margin-top: 8px; }
   .section-content { flex: 1; }
-
   .disc-list li:first-child { padding-top: 0; }
+
+  /* Disc list: zurück auf zweispaltig */
   .disc-list li {
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -273,6 +276,7 @@ footer {
     gap: 8px;
     text-align: left;
   }
+
   .disc-num { display: inline; margin-bottom: 0; }
   .disc-name { display: inline; }
   .disc-sub { grid-column: 2; margin-top: -4px; }
