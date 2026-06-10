@@ -65,7 +65,7 @@ body::after {
 }
 
 .hero-mark {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'IM Fell English', serif;
   font-size: clamp(72px, 22vw, 128px);
   line-height: 0.88;
   letter-spacing: -0.04em;
@@ -75,7 +75,7 @@ body::after {
   pointer-events: none;
 }
 
-.hero-mark em { font-style: normal; }
+.hero-mark em { font-style: italic; }
 
 .hero-text h1 {
   font-family: 'IM Fell English', serif;
