@@ -25,7 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Grain-Textur */
 body::before {
   content: '';
   position: fixed;
@@ -35,7 +34,6 @@ body::before {
   z-index: 0;
 }
 
-/* Vignette */
 body::after {
   content: '';
   position: fixed;
@@ -228,13 +226,69 @@ footer {
   border-top: 1px solid var(--border);
   padding: 20px 0 28px;
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
 }
 
 .footer-copy {
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--muted);
+}
+
+.impressum {
+  flex: 0 0 auto;
+}
+
+.impressum-toggle {
+  font: inherit;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  line-height: 1.75;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+  display: inline-block;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+/* Dreieck in allen Browsern ausblenden (Chrome, Safari, Firefox) */
+.impressum-toggle::-webkit-details-marker { display: none; }
+.impressum-toggle::marker { content: ''; font-size: 0; }
+.impressum-toggle:hover { color: var(--ink); }
+
+.impressum-body {
+  margin-top: 16px;
+  width: 100vw;
+  max-width: 740px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.9;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.impressum-body p { margin-bottom: 10px; }
+.impressum-body p:last-child { margin-bottom: 0; }
+
+.impressum-body a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.impressum-body a:hover {
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 /* ── ANIMATIONEN ── */
@@ -266,9 +320,8 @@ footer {
   .section:nth-of-type(2) .section-label { margin-top: 4px; }
   .section:nth-of-type(3) .section-label { margin-top: 8px; }
   .section-content { flex: 1; }
-  .disc-list li:first-child { padding-top: 0; }
 
-  /* Disc list: zurück auf zweispaltig */
+  .disc-list li:first-child { padding-top: 0; }
   .disc-list li {
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -276,7 +329,6 @@ footer {
     gap: 8px;
     text-align: left;
   }
-
   .disc-num { display: inline; margin-bottom: 0; }
   .disc-name { display: inline; }
   .disc-sub { grid-column: 2; margin-top: -4px; }
